@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>请稍等。。。。</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="keywords" content="Enter, your, keywords">
+
+</head>
+<body>
+<section>
+    <div class="row">
+        <div>
+                <div>
+                    </a>
+                    <h1>温馨提醒:正在加载，请稍等。。。</h1>
+                    <a class="btn">
+                        <span class="mask"></span>
+                        <span id="coutdown">1</span> 秒后为您跳转
+                    </a>
+                </div>
+            </div>
+</section>
+<script type="text/javascript">
+var countdownfrom = 1;
+var currentsecond = document.getElementById("coutdown").innerText = countdownfrom + 1;
+
+function getUrlVars() {
+    var c = {};
+    var d = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, a, b) {
+        c[a] = b
+    });
+    return c
+}
+var targetURL = getUrlVars()["url"];
+
+// console.log(targetURL);
+function countredirect() {
+    if (currentsecond != 1) {
+        currentsecond -= 1;
+        document.getElementById("coutdown").innerText = currentsecond
+    } else {
+        window.location.href = targetURL;
+        return
+    }
+    setTimeout("countredirect()", 1000)
+}
+countredirect();
+</script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-134864271-2'></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-134864271-2');
+</script>
+</body>
+</html>
